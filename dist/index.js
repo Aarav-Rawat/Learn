@@ -22,7 +22,16 @@ function insertUser(username, password, firstName, lastName, email) {
                 email,
             }
         });
+    });
+}
+function getTodo(userId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield prisma.todo.findMany({
+            where: {
+                userId: userId
+            }
+        });
         console.log(response);
     });
 }
-insertUser('aar42av', 'aa53rav', 'aa53rav', 'rawat53', 'aarav53@gmail.com');
+getTodo(1);
